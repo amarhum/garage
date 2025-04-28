@@ -1,4 +1,6 @@
 (function($, document, window){
+
+
 	
 	$(document).ready(function(){
 
@@ -104,18 +106,30 @@
 
 
 	document.addEventListener("DOMContentLoaded", function () {
-		// Lokasi bengkel (latitude, longitude)
+		
 		const location = [-6.895021, 106.809950]; 
 
-		// Inisialisasi peta
 		const map = L.map("map").setView(location, 15);
 
-		// Tambahkan tile layer dari OpenStreetMap
 		L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 		}).addTo(map);
 
-		// Tambahkan marker di lokasi
+		L.marker(location)
+			.addTo(map)
+			.bindPopup("<b>Sirkon Garage</b><br>Jl. Raya No. 123, Bandung")
+			.openPopup();
+	});
+	document.addEventListener("DOMContentLoaded", function () {
+		
+		const location = [-6.895021, 106.809950]; 
+
+		const map = L.map("map2").setView(location, 15);
+
+		L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+		}).addTo(map);
+
 		L.marker(location)
 			.addTo(map)
 			.bindPopup("<b>Sirkon Garage</b><br>Jl. Raya No. 123, Bandung")
